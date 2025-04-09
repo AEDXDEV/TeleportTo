@@ -55,7 +55,7 @@ class AnimeTeleportEffect extends TeleportEffect{
       $this->handlePreTeleport();
     } elseif ($this->tick === 10) {
       $this->handleTeleport();
-    } elseif ($this->tick > 10 && $this->tick < self::MAX_STEPS) {
+    } elseif ($this->tick < self::MAX_STEPS) {
       $this->handlePostTeleport();
     } else {
       $this->stop = true;

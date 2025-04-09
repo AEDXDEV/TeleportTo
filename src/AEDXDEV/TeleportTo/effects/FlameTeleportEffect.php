@@ -39,7 +39,7 @@ use pocketmine\scheduler\ClosureTask;
 
 class FlameTeleportEffect extends TeleportEffect{
 
-  private const MAX_STEPS = 40;
+  protected const MAX_STEPS = 40;
 
   public function start(): void{
     parent::start();

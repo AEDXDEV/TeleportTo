@@ -46,7 +46,7 @@ class LineTeleportEffect extends TeleportEffect {
   public function start(): void{
     parent::start();
     $this->generatePath();
-    $player->getNetworkSession()->sendDataPacket(CameraShakePacket::create(2.0, 1.0, CameraShakePacket::TYPE_POSITIONAL, CameraShakePacket::ACTION_ADD));
+    $this->getPlayer()->getNetworkSession()->sendDataPacket(CameraShakePacket::create(2.0, 1.0, CameraShakePacket::TYPE_POSITIONAL, CameraShakePacket::ACTION_ADD));
     $this->playSound("random.orb", 1.2);
   }
 

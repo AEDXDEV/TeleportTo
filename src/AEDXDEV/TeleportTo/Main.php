@@ -280,6 +280,7 @@ class Main extends PluginBase implements Listener{
     $all = "";
     if ($this->config->getNested("DeleteForm.teleports-enable")) {
       foreach ($this->getNearestTeleports($player->getPosition(), $this->config->getNested("DeleteForm.teleports-count")) as $id => $distance) {
+        $data = $this->getDB()->get($id);
         $all .= "  §aId: §e$id  §aFrom: §e" . implode(" ", $data["From"]) . "  §aTo: §e" . implode(" ", $data["To"]) . "  §eDistance: §e{$distance} blocks\n";
       }
     }
@@ -298,7 +299,7 @@ class Main extends PluginBase implements Listener{
   }
   
   public function removeSureForm(Player $player, int $id): void{
-    $form = new ModalForm(fn (Player $player, ?int $data) => match ($data) {
+    $form = new ModalForm(fn (Player $player, ?bool $data) => match ($data) {
       true => $this->removeTeleport($id),
       default => null
     });
