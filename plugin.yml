@@ -1,0 +1,22 @@
+name: TeleportTo
+main: AEDXDEV\TeleportTo\Main
+version: 2.0.0
+api: 5.0.0
+author: AEDXDEV
+description: Teleport from a place to place
+permissions:
+  teleportto.use:
+    default: op
+  teleportto.help:
+    default: op
+  teleportto.item:
+    default: op
+  teleportto.from:
+    default: op
+  teleportto.to:
+    default: op
+  teleportto.get:
+    default: op
+  teleportto.remove:
+    default: op
+  
