@@ -70,8 +70,7 @@ class TpToCommand extends BaseCommand {
     $this->registerSubCommand("item", [new RawStringArgument("player", true)], function(CommandSender $sender, string $aliasUsed, array $args): void{
       $target = $sender;
       if (isset($args["player"])) {
-        $target = $this->getServer()->getPlayerByPrefix($args["player"]);
-        
+        $target = $this->plugin->getServer()->getPlayerByPrefix($args["player"]);
       }
       if (!$target instanceof Player) {
         $sender->sendMessage(Main::cmdPrefix . "§cPlayer not found!");
@@ -83,14 +82,14 @@ class TpToCommand extends BaseCommand {
       $target->sendMessage(Main::getInstance()->getMessage("TeleportItem"));
     }, "teleportto.item", true);
     
-    $this->registerSubCommand("from", [new Vector3Argument("position", true)], function(CommandSender $sender, string $aliasUsed, array $args): void{
+    $this->registerSubCommand("from", [new Vector3Argument("position", true)], function(Player $sender, string $aliasUsed, array $args): void{
       $pos = $args["position"] ?? $sender->getPosition();
       $pos = Position::fromObject($pos->asVector3()->floor(), $sender->getWorld());
       $this->plugin->setInSetupMode($sender, $pos);
       $sender->sendMessage(Main::cmdPrefix . "§aFrom: §e" . implode(" ", [$pos->x, $pos->y, $pos->z]));
     }, "teleportto.from", false);
     
-    $this->registerSubCommand("to", [new Vector3Argument("position", true)], function(CommandSender $sender, string $aliasUsed, array $args): void{
+    $this->registerSubCommand("to", [new Vector3Argument("position", true)], function(Player $sender, string $aliasUsed, array $args): void{
       $pos = $args["position"] ?? $sender->getPosition();
       $pos = Position::fromObject($pos->asVector3()->floor(), $sender->getWorld());
       if (!$this->plugin->isInSetupMode($sender)) {
@@ -102,7 +101,7 @@ class TpToCommand extends BaseCommand {
 			$this->plugin->setInSetupMode($sender);
     }, "teleportto.to", false);
     
-    $this->registerSubCommand("get", [], function(CommandSender $sender, string $aliasUsed, array $args): void{
+    $this->registerSubCommand("get", [], function(Player $sender, string $aliasUsed, array $args): void{
       if ($this->plugin->isInRetrieveIdMode($sender)){
         $sender->sendMessage(Main::getInstance()->getMessage("InRetrieveIdMode"));
         return;

@@ -100,7 +100,6 @@ class Main extends PluginBase implements Listener{
         "InRetrieveIdMode" => "§eYou're already in ID retrieval mode",
         "TeleportRemove" => "§aThe Teleport §8[§7{ID}§8] §ahas been removed successfully!",
         "TeleportNotFound" => "§cTeleport[§4{ID}§c] is not found",
-        
       ],
       "TeleportDistance" => 1.4,
       "TeleportEffect" => "normal",

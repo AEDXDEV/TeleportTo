@@ -30,9 +30,6 @@ namespace AEDXDEV\TeleportTo\task;
 
 use AEDXDEV\TeleportTo\Main;
 use pocketmine\scheduler\Task;
-use pocketmine\block\utils\DyeColor;
-use pocketmine\world\Position;
-use pocketmine\world\particle\DustParticle;
 
 class EffectTask extends Task {
 	
