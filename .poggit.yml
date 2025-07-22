@@ -7,6 +7,6 @@ projects:
     path: ""
     icon: icon.png
     libs:
-      - src: AEDXDEV/ECMD/
+      - src: AEDXDEV/ECMD/ECMD
         version: ^1.2.0
 ...
