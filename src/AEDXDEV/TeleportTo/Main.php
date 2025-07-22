@@ -193,7 +193,7 @@ class Main extends PluginBase implements Listener{
     }
 	}
 	
-	public function getNearestTeleports(Position $pos, int $teleportDistance = 5, bool $toPos): array{
+	public function getNearestTeleports(Position $pos, int $teleportDistance = 5, bool $toPos = true): array{
 	  $teleports = [];
 	  foreach ($this->getDB()->getAll() as $id => $data){
   	  $from = $this->toPos($data["From"]);
